@@ -1,2 +1,5 @@
+export * from './dto'
+export * from './entity'
+export * from './interfaces'
 export { UserModule } from './user.module'
 export { UserService } from './user.service'
