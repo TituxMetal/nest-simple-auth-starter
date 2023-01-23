@@ -1,5 +1,7 @@
-import { Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
+import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
 
+import { CreateUserDto } from './dto'
+import { UserEntity } from './entity'
 import { UserService } from './user.service'
 
 @Controller('users')
@@ -8,7 +10,7 @@ export class UserController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  create() {
-    return this.userService.create()
+  create(@Body() dto: CreateUserDto): Promise<UserEntity> {
+    return this.userService.create({ ...dto })
   }
 }
