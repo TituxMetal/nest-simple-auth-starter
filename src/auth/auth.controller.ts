@@ -1,6 +1,8 @@
-import { Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
+import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
 
 import { AuthService } from './auth.service'
+import { RegisterDto } from './dto'
+import { AuthUserEntity } from './entity'
 
 @Controller('auth')
 export class AuthController {
@@ -8,8 +10,8 @@ export class AuthController {
 
   @Post('register')
   @HttpCode(HttpStatus.CREATED)
-  register() {
-    return this.authService.registerUser()
+  async register(@Body() dto: RegisterDto): Promise<AuthUserEntity> {
+    return this.authService.registerUser({ ...dto })
   }
 
   @Post('login')
