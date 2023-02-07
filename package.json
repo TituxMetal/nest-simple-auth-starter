@@ -23,7 +23,7 @@
     "@nestjs/config": "2.3.0",
     "@nestjs/core": "9.3.2",
     "@nestjs/jwt": "10.0.1",
-    "@nestjs/mapped-types": "1.2.0",
+    "@nestjs/mapped-types": "1.2.2",
     "@nestjs/platform-express": "9.3.2",
     "@prisma/client": "4.9.0",
     "argon2": "0.30.3",
